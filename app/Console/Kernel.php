@@ -22,17 +22,18 @@ class Kernel extends ConsoleKernel
         \App\Console\Components\Twitter\ListenForMentions::class,
         \App\Console\Components\Twitter\ListenForQuotes::class,
         \App\Console\Components\Twitter\SendFakeTweet::class,
-        \App\Console\Components\Uptime\SendUptime::class,
         UpdateDashboard::class,
     ];
 
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('dashboard:fetch-calendar-events')->everyMinute();
+        //$schedule->command('dashboard:fetch-calendar-events')->everyMinute();
+        //$schedule->command('monitor:check-uptime')->everyMinute();
         $schedule->command('dashboard:fetch-current-track')->everyMinute();
         $schedule->command('dashboard:send-heartbeat')->everyMinute();
         $schedule->command('dashboard:fetch-tasks')->everyFiveMinutes();
-        $schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
-        $schedule->command('dashboard:fetch-packagist-totals')->hourly();
+        //$schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
+        //$schedule->command('dashboard:fetch-packagist-totals')->hourly();
+        $schedule->command('monitor:check-certificate')->daily();
     }
 }

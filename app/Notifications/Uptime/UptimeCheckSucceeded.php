@@ -9,14 +9,14 @@ use Illuminate\Notifications\Messages\BroadcastMessage;
 use Spatie\UptimeMonitor\Models\Enums\UptimeStatus;
 use Illuminate\Notifications\Messages\SlackAttachment;
 use Spatie\UptimeMonitor\Notifications\BaseNotification;
-use Spatie\UptimeMonitor\Events\UptimeCheckFailed as MonitorFailedEvent;
-use App\Events\Uptime\UptimeCheckFailed as UptimeCheckFailedEvent;
+use Spatie\UptimeMonitor\Events\UptimeCheckSucceeded as MonitorSucceededEvent;
+use App\Events\Uptime\UptimeCheckSucceeded as UptimeCheckSucceededEvent;
 
-class UptimeCheckFailed extends \Spatie\UptimeMonitor\Notifications\Notifications\UptimeCheckFailed
+class UptimeCheckSucceeded extends \Spatie\UptimeMonitor\Notifications\Notifications\UptimeCheckSucceeded
 {
     public function toBroadcast($notifiable)
     {
-        return event(new UptimeCheckFailedEvent($this->getUrl(), $this->getSince()));
+        return event(new UptimeCheckSucceededEvent($this->getUrl()));
     }
 
     protected function getUrl(): string
@@ -24,8 +24,4 @@ class UptimeCheckFailed extends \Spatie\UptimeMonitor\Notifications\Notification
         return "{$this->event->monitor->url}";
     }
 
-    protected function getSince(): string
-    {
-        return "Since {$this->event->downtimePeriod->startDateTime->format('H:i')} ({$this->event->monitor->formattedLastUpdatedStatusChangeDate()})";
-    }
 }

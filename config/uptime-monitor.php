@@ -9,12 +9,12 @@ return [
     'notifications' => [
 
         'notifications' => [
-            \App\Notifications\Uptime\UptimeCheckFailed::class => ['slack', 'broadcast'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\UptimeCheckRecovered::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\UptimeCheckSucceeded::class => ['slack'],
+            \App\Notifications\Uptime\UptimeCheckFailed::class => ['broadcast'],
+            \App\Notifications\Uptime\UptimeCheckRecovered::class => ['slack', 'broadcast'],
+            \App\Notifications\Uptime\UptimeCheckSucceeded::class => [],
 
-            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateCheckFailed::class => ['slack'],
-            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateExpiresSoon::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateCheckFailed::class => [],
+            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateExpiresSoon::class => [],
             \Spatie\UptimeMonitor\Notifications\Notifications\CertificateCheckSucceeded::class => [],
         ],
 
@@ -36,10 +36,6 @@ return [
 
         'slack' => [
             'webhook_url' => env('UPTIME_MONITOR_SLACK_WEBHOOK_URL', 'https://hooks.slack.com/services/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'),
-        ],
-
-        'broadcast' => [
-            'channel' => ['pusher'],
         ],
 
         /*

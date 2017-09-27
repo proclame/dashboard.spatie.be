@@ -14,7 +14,7 @@
             </div>
             <h1 v-else class="uptime__title--up">Sites are up</h1>
         </section>
-        <div v-if="!hasNotifications" class="uptime__background h-background-icon"></div>
+    <div v-if="!hasNotifications" class="uptime__background h-background-icon"></div>
     </tile>
 </template>
 
@@ -48,7 +48,6 @@
                 return this.failingUrls.length > 0;
             },
         },
-
 
         methods: {
             addClassModifiers,
