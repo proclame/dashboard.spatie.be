@@ -1,5 +1,5 @@
 <template>
-    <tile v-if="hasNotifications" :position="position" modifiers="overflow yellow above">
+    <tile :position="position" modifiers="overflow yellow above">
         <section class="uptime">
             <div v-if="hasNotifications">
                 <h1 class="uptime__title">Downtime</h1>
@@ -7,7 +7,7 @@
                     <li v-for="failing in failingUrls" class="uptime__notification">
                         <h2 class="uptime__notification__title h-ellipsis">{{ failing.url }}</h2>
                         <div class="uptime__notification__time">
-                            {{ failing.startedFailingAt | formatDuration }}
+                            {{ failing.startedFailingAt }}
                         </div>
                     </li>
                 </ul>

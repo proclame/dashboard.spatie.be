@@ -14,21 +14,8 @@ class FetchTasks extends Command
 
     public function handle(GitHubApi $gitHub)
     {
-        $fileNames = explode(',', config('services.github.files'));
+        $tasks['alex'] = 'Veel Taken van alex';
 
-        $contentOfFiles = collect($fileNames)
-            ->combine($fileNames)
-            ->map(function ($fileName) use ($gitHub) {
-                return $gitHub->fetchFileContent('spatie', 'tasks', "{$fileName}.md", 'master');
-            })
-            ->map(function ($fileInfo) {
-                return file_get_contents($fileInfo['download_url']);
-            })
-            ->map(function ($markdownContent) {
-                return markdownToHtml($markdownContent);
-            })
-            ->toArray();
-
-        event(new TasksFetched($contentOfFiles));
+        event(new TasksFetched($tasks));
     }
 }
