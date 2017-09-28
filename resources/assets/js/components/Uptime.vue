@@ -1,5 +1,5 @@
 <template>
-    <tile :position="position" modifiers="overflow yellow above">
+    <tile v-if="hasNotifications" :position="position" modifiers="overflow yellow above">
         <section class="uptime">
             <div v-if="hasNotifications">
                 <h1 class="uptime__title">Downtime</h1>
@@ -12,9 +12,12 @@
                     </li>
                 </ul>
             </div>
-            <h1 v-else class="uptime__title--up">Sites are up</h1>
         </section>
-    <div v-if="!hasNotifications" class="uptime__background h-background-icon"></div>
+    </tile>
+    <tile v-else :position="position" modifiers="overflow above">
+        <div class="uptime__background h-background-icon">
+            <h1 class="uptime__title--up">Sites are up</h1>
+        </div>
     </tile>
 </template>
 

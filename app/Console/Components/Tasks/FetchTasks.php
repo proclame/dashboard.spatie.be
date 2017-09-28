@@ -14,7 +14,12 @@ class FetchTasks extends Command
 
     public function handle(GitHubApi $gitHub)
     {
-        $tasks['alex'] = 'Heel Veel Taken van alex';
+        $tasks['alex'] = 'Minder Taken van alex<br>
+        <ul><li>Test 1123</li><li>Test 11235</li></ul>
+        <table style="width:100%">
+        <tr><td>sdfljsdf</td><td style="text-align: right;">--sfldsjfs</td></tr>
+        <tr><td>sdfljsdf</td><td>--sfldsjfs</td></tr>
+        </table>';
 
         event(new TasksFetched($tasks));
     }

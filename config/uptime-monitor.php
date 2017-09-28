@@ -9,12 +9,12 @@ return [
     'notifications' => [
 
         'notifications' => [
-            \App\Notifications\Uptime\UptimeCheckFailed::class => ['broadcast'],
-            \App\Notifications\Uptime\UptimeCheckRecovered::class => ['slack', 'broadcast'],
+            \App\Notifications\Uptime\UptimeCheckFailed::class => ['broadcast', 'slack'],
+            \App\Notifications\Uptime\UptimeCheckRecovered::class => ['broadcast', 'slack'],
             \App\Notifications\Uptime\UptimeCheckSucceeded::class => [],
 
-            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateCheckFailed::class => [],
-            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateExpiresSoon::class => [],
+            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateCheckFailed::class => ['slack'],
+            \Spatie\UptimeMonitor\Notifications\Notifications\CertificateExpiresSoon::class => ['slack'],
             \Spatie\UptimeMonitor\Notifications\Notifications\CertificateCheckSucceeded::class => [],
         ],
 
@@ -28,14 +28,14 @@ return [
          * To keep reminding you that a site is down, notifications
          * will be resent every given number of minutes.
          */
-        'resend_uptime_check_failed_notification_every_minutes' => 1,
+        'resend_uptime_check_failed_notification_every_minutes' => 30,
 
         'mail' => [
             'to' => ['your@email.com'],
         ],
 
         'slack' => [
-            'webhook_url' => env('UPTIME_MONITOR_SLACK_WEBHOOK_URL', 'https://hooks.slack.com/services/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'),
+            'webhook_url' => env('UPTIME_MONITOR_SLACK_WEBHOOK_URL'),
         ],
 
         /*
@@ -68,7 +68,7 @@ return [
          * When an uptime check fails we'll check the uptime for that monitor every time `monitor:check-uptime`
          * runs regardless of this setting.
          */
-        'run_interval_in_minutes' => 1,
+        'run_interval_in_minutes' => 5,
 
         /*
          * To speed up the uptime checking process the package can perform the uptime check of several
