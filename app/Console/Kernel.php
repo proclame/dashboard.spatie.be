@@ -13,6 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
+        \App\Console\Components\Analytics\FetchAnalytics::class,
+        \App\Console\Components\Bol\FetchBol::class,
         \App\Console\Components\Calendar\FetchCalendarEvents::class,
         \App\Console\Components\GitHub\FetchTotals::class,
         \App\Console\Components\InternetConnection\SendHeartbeat::class,
@@ -31,6 +33,8 @@ class Kernel extends ConsoleKernel
         $schedule->command('dashboard:fetch-current-track')->everyMinute();
         $schedule->command('dashboard:send-heartbeat')->everyMinute();
         $schedule->command('dashboard:fetch-tasks')->everyFiveMinutes();
+        $schedule->command('dashboard:fetch-analytics')->everyFiveMinutes();
+        $schedule->command('dashboard:fetch-bol')->everyFiveMinutes();
         //$schedule->command('dashboard:fetch-github-totals')->everyThirtyMinutes();
         //$schedule->command('dashboard:fetch-packagist-totals')->hourly();
         $schedule->command('monitor:check-uptime')->everyMinute();
