@@ -6,7 +6,7 @@
 
 <dashboard id="dashboard" columns="4" rows="3">
     <bol position="b1"></bol>
-    <orderAnalytics position="b2"></orderAnalytics>
+    <orderAnalytics position="c1:c2"></orderAnalytics>
     <analytics position="b3"></analytics>
     <uptime position="c3"></uptime>
     <music position="d3"></music>
