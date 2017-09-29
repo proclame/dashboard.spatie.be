@@ -5,8 +5,9 @@
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 
 <dashboard id="dashboard" columns="4" rows="3">
-    <analytics position="b3"></analytics>
     <bol position="b1"></bol>
+    <orderAnalytics position="b2"></orderAnalytics>
+    <analytics position="b3"></analytics>
     <uptime position="c3"></uptime>
     <music position="d3"></music>
     <time-weather position="d2" date-format="ddd DD/MM" time-zone="America/New_York" weather-city="Miami"></time-weather>

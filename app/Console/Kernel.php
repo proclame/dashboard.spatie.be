@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Components\Bol\FetchBol::class,
         \App\Console\Components\InternetConnection\SendHeartbeat::class,
         \App\Console\Components\Music\FetchCurrentTrack::class,
+        \App\Console\Components\OrderAnalytics\FetchOrderAnalytics::class,
         UpdateDashboard::class,
     ];
 
@@ -24,6 +25,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('dashboard:fetch-current-track')->everyMinute();
         $schedule->command('dashboard:send-heartbeat')->everyMinute();
+        $schedule->command('dashboard:fetch-order-analytics')->everyFiveMinutes();
         $schedule->command('dashboard:fetch-analytics')->everyFiveMinutes();
         $schedule->command('dashboard:fetch-bol')->everyFiveMinutes();
         $schedule->command('monitor:check-uptime')->everyMinute();

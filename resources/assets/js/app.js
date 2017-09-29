@@ -8,6 +8,7 @@ import Analytics from './components/Analytics';
 import Bol from './components/Bol';
 import InternetConnection from './components/InternetConnection';
 import Music from './components/Music';
+import Orderanalytics from './components/OrderAnalytics';
 import TimeWeather from './components/TimeWeather';
 import Uptime from './components/Uptime';
 
@@ -21,6 +22,7 @@ new Vue({
         Bol,
         InternetConnection,
         Music,
+        Orderanalytics,
         TimeWeather,
         Uptime,
     },
