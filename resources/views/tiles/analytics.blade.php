@@ -1,4 +1,4 @@
-<table style="width: 80%">
+<table style="width: 100%">
 	<tbody>
 		<tr><td>Vandaag:</td><td align="right">{{ $visitors['Today']}}</td></tr>
 		<tr><td>Gisteren:</td><td align="right">{{ $visitors['Yesterday']}}</td></tr>

@@ -14,8 +14,6 @@ class DashboardController extends Controller
 
             'pusherCluster' => config('broadcasting.connections.pusher.options.cluster'),
 
-            'initialTweets' => TweetHistory::all(),
-
             'usingNodeServer' => usingNodeServer(),
         ]);
     }

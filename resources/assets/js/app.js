@@ -6,14 +6,9 @@ import Vue from 'vue';
 import Dashboard from './components/Dashboard';
 import Analytics from './components/Analytics';
 import Bol from './components/Bol';
-import Calendar from './components/Calendar';
-import Github from './components/Github';
 import InternetConnection from './components/InternetConnection';
 import Music from './components/Music';
-import Packagist from './components/Packagist';
-import Tasks from './components/Tasks';
 import TimeWeather from './components/TimeWeather';
-import Twitter from './components/Twitter';
 import Uptime from './components/Uptime';
 
 new Vue({
@@ -24,14 +19,9 @@ new Vue({
         Dashboard,
         Analytics,
         Bol,
-        Calendar,
-        Github,
         InternetConnection,
         Music,
-        Packagist,
-        Tasks,
         TimeWeather,
-        Twitter,
         Uptime,
     },
 
@@ -42,13 +32,6 @@ new Vue({
             key: window.dashboard.pusherKey,
             cluster: window.dashboard.pusherCluster,
         };
-
-        if (window.dashboard.usingNodeServer) {
-            options = {
-                broadcaster: 'socket.io',
-                host: 'http://dashboard.spatie.be:6001',
-            };
-        }
 
         this.echo = new Echo(options);
     },

@@ -12,9 +12,6 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        \App\Events\Twitter\Mentioned::class => [
-            \App\Services\TweetHistory\TweetHistory::class,
-        ],
     ];
 
     /**
