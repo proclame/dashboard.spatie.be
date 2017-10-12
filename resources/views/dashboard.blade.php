@@ -5,6 +5,7 @@
 @javascript(compact('pusherKey', 'pusherCluster', 'usingNodeServer'))
 
 <dashboard id="dashboard" columns="4" rows="3">
+    <it-todo position="a1"></it-todo>
     <bol position="b1"></bol>
     <orderAnalytics position="c1:c2"></orderAnalytics>
     <analytics position="b3"></analytics>

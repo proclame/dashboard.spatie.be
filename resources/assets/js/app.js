@@ -6,6 +6,7 @@ import Vue from 'vue';
 import Dashboard from './components/Dashboard';
 import Analytics from './components/Analytics';
 import Bol from './components/Bol';
+import ItTodo from './components/ItTodo';
 import InternetConnection from './components/InternetConnection';
 import Music from './components/Music';
 import Orderanalytics from './components/OrderAnalytics';
@@ -20,6 +21,7 @@ new Vue({
         Dashboard,
         Analytics,
         Bol,
+        ItTodo,
         InternetConnection,
         Music,
         Orderanalytics,
