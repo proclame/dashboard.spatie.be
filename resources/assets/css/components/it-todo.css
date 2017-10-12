@@ -1,0 +1,9 @@
+.title {
+	font-size: var(--font-size-m);
+	margin-top: 0.5em;
+}
+
+.it-todo li {
+	padding-left: 2em;
+	font-weight: lighter;
+}

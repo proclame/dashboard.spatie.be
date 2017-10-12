@@ -1,6 +1,6 @@
 <template>
     <tile :position="position" modifiers="overflow">
-        <section class="github-file">
+        <section class="github-file it-todo">
             <h1 class="github-file__title">IT Todo</h1>
             <div class="github-file__content" v-html="itTodo"></div>
         </section>
@@ -13,7 +13,6 @@
     import saveState from 'vue-save-state';
 
     export default {
-
         components: {
             Tile,
         },
