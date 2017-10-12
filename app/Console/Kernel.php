@@ -27,9 +27,9 @@ class Kernel extends ConsoleKernel
         $schedule->command('dashboard:fetch-current-track')->everyMinute();
         $schedule->command('dashboard:send-heartbeat')->everyMinute();
         $schedule->command('dashboard:fetch-order-analytics')->everyFiveMinutes();
-        $schedule->command('dashboard:fetch-analytics')->everyHour();
+        $schedule->command('dashboard:fetch-analytics')->hourly();
         $schedule->command('dashboard:fetch-bol')->everyFiveMinutes();
-        $schedule->command('dashboard:fetch-it-todo')->everyHour();
+        $schedule->command('dashboard:fetch-it-todo')->hourly();
         $schedule->command('monitor:check-uptime')->everyMinute();
         $schedule->command('monitor:check-certificate')->daily();
     }
